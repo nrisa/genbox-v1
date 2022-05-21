@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+// konfigurasi
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Routes, Route  } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// component & pages
+import NoPage from './Pages/NoPage';
+import Navbar from './Component/Navbar';
+import Up from './Component/Up';
+import Sosmed from './Component/Sosmed';
+import Home from './Pages/Home';
+
+// style
+import './Asset/css/App.css';
+
+class App extends Component {
+  render() {
+    return (
+      <Router>
+        <div className='Root' id='Root'>
+          <Navbar />
+          <Sosmed />
+          <Up />
+           <div>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/portfolio" element={<NoPage />} />
+              <Route path="/about" element={<NoPage />} />
+              <Route path="/shop" element={<NoPage />} />
+            </Routes>
+           </div>
+        </div>
+      </Router>
+    );
+  }
 }
 
 export default App;
